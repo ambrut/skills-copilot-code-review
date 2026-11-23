@@ -664,10 +664,319 @@ footer {
 #logout-button:hover {
   background-color: rgba(255, 255, 255, 0.3);
 }
+
+/* Announcements: header button */
+#user-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#manage-announcements-button {
+  color: var(--primary-text);
+}
+
+/* Announcements: public banners */
+.announcement-banners:empty {
+  display: none;
+}
+
+.announcement-banners {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
 .announcement-banner {
-  background-color: var(--success);
-  color: white;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: linear-gradient(135deg, var(--secondary-light), var(--secondary));
+  color: var(--secondary-text);
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.announcement-icon {
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+
+.announcement-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.announcement-body .announcement-title {
+  display: block;
+  font-size: 1rem;
+}
+
+.announcement-body .announcement-message {
+  margin: 2px 0 0;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+
+.announcement-expires {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.9;
+}
+
+/* Announcements: management dialog */
+.announcements-dialog {
+  max-width: 920px;
+  width: 95%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.announcements-dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--primary);
+  color: var(--primary-text);
+}
+
+.announcements-dialog-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.icon-close {
+  background: none;
+  color: inherit;
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 0 6px;
+  border-radius: 4px;
+}
+
+.icon-close:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.announcements-dialog-body {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(300px, 1.2fr);
+  gap: 0;
+  min-height: 0;
+  flex: 1;
+  overflow: hidden;
+}
+
+.announcements-list-pane,
+.announcement-form-pane {
+  padding: 18px 20px;
+  overflow-y: auto;
+}
+
+.announcements-list-pane {
+  background-color: var(--background);
+  border-right: 1px solid var(--border);
+}
+
+.announcement-form-pane h4 {
+  margin: 0 0 12px;
+  color: var(--primary);
+  font-size: 1rem;
+}
+
+.secondary-button {
+  background-color: var(--surface);
+  color: var(--primary);
+  border: 1px solid var(--primary-light);
+}
+
+.secondary-button:hover {
+  background-color: var(--background);
+}
+
+.danger-button {
+  background-color: var(--error);
+}
+
+.danger-button:hover {
+  background-color: #a31f1f;
+}
+
+.small-button {
+  padding: 4px 10px;
+  font-size: 0.8rem;
+}
+
+#new-announcement-button {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+}
+
+.announcements-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.announcements-empty {
+  color: var(--text-secondary);
+  font-style: italic;
   text-align: center;
-  padding: 15px;
-  font-weight: bold;
+  margin: 20px 0;
+}
+
+.announcement-item {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary-light);
+  border-radius: 6px;
+  padding: 10px 12px;
+  transition: box-shadow 0.2s;
+}
+
+.announcement-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.announcement-item.is-editing {
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 2px rgba(83, 75, 174, 0.25);
+}
+
+.announcement-item .announcement-title {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.announcement-item .announcement-message {
+  margin: 4px 0 6px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  overflow-wrap: anywhere;
+}
+
+.announcement-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.announcement-item-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.announcement-status {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.status-active {
+  background-color: var(--success-light);
+  color: var(--success);
+}
+
+.status-scheduled {
+  background-color: var(--info-light);
+  color: var(--info);
+}
+
+.status-expired {
+  background-color: var(--border-light);
+  color: var(--text-secondary);
+}
+
+/* Announcements: form */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.optional-label {
+  color: var(--text-secondary);
+  font-weight: normal;
+  font-size: 0.8rem;
+}
+
+#announcement-form input[type="text"],
+#announcement-form input[type="date"],
+#announcement-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font: inherit;
+  background-color: var(--surface);
+}
+
+#announcement-form textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+#announcement-form input:focus,
+#announcement-form textarea:focus {
+  outline: 2px solid var(--primary-light);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+
+.input-error {
+  border-color: var(--error) !important;
+  outline-color: var(--error) !important;
+}
+
+.announcement-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.announcement-form-actions button {
+  padding: 8px 16px;
+}
+
+@media (max-width: 768px) {
+  .announcements-dialog-body {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+
+  .announcements-list-pane {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .announcements-list-pane,
+  .announcement-form-pane {
+    overflow-y: visible;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
 }
